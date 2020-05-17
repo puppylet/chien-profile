@@ -1,0 +1,81 @@
+/* ------------------------------
+		 About
+------------------------------ */
+.about {
+  .hero {
+    border: 1px solid $bg-light;
+    padding: 6px;
+    border-radius: $rd-round;
+
+    img {
+      border-radius: $rd-round;
+    }
+  }
+
+  .details {
+    .info {
+      display: inline-block;
+      width: 100%;
+
+      li {
+        margin-bottom: 10px;
+        width: 50%;
+        float: left;
+      }
+    }
+  }
+
+  .features {
+    .item {
+      padding: 24px 20px 20px 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      @include box;
+
+      .icon i {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .timeline {
+    background-color: $white-color;
+    border-radius: $rd-round;
+    //padding: 30px;
+    margin-bottom: 30px;
+    white-space: pre-wrap;
+    //@include shadow;
+
+    .item {
+      position: relative;
+      padding: 0;
+      border-radius: $rd-round;
+
+      &::after {
+        @include after(-6px, 6px, 13px, 13px);
+        background-color: $base-color;
+        border-radius: $rd-circle;
+      }
+
+      .content {
+        padding: 0px 0px 50px 50px;
+        border-left: 1px solid $base-color;
+
+        h6 {
+          text-transform: capitalize;
+          font-weight: $f-w-500;
+        }
+      }
+
+      &:last-child {
+        .content {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+

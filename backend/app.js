@@ -24,7 +24,7 @@ requireDir('./src/models');
 
 app.get('/', function (req, res) {res.status(200).send('OK!')});
 
-const publicRoutes = ['/auth/login', '/auth/sign-up']
+const publicRoutes = ['/auth/login', '/auth/sign-up', '/profile']
 
 app.use(
   jwt({
@@ -36,11 +36,11 @@ app.use(
 
 app.use('/user', require('./src/routes/user'));
 app.use('/auth', require('./src/routes/auth'));
-app.use('/article', require('./src/routes/article'));
 app.use('/tech', require('./src/routes/tech'));
 app.use('/client', require('./src/routes/client'));
 app.use('/project', require('./src/routes/project'));
 app.use('/experience', require('./src/routes/experience'));
+app.use('/profile', require('./src/routes/profile'));
 app.use((req, res, next) => {const err = new Error('Not Found');  err.status = 404;  next(err)});
 app.use((err, req, res, next) => res.status(err.status || 500).end());
 

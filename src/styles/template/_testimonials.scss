@@ -1,0 +1,84 @@
+/* ------------------------------
+		Testimonials
+------------------------------ */
+
+.testimonials{
+    .owl-carousel{
+        width:100%;
+        margin-bottom: 30px;
+    }
+    .item{
+        max-width: 750px;
+  
+        .image{
+            position: relative;
+			z-index: 1;
+			
+            img{
+                width:80px;
+                height:80px;
+                max-width: 100px;
+                border-radius: $rd-circle;
+                z-index: 1;
+            }
+        
+			&:after{
+		  		@include after(-5px,-5px,90px,90px);
+		  		border:1px solid $base-color;
+		  		z-index: -1;
+                border-radius: $rd-circle;
+                background-color: $white-color;
+			}
+        }
+
+        .content{
+            padding: 30px;
+            padding-left:70px;
+            margin-left:-40px;
+            z-index: -1;
+            background-color: $bg-light;
+            border-radius: $rd-round;
+            .icon{
+               font-size: 30px;
+               color:$base-color;
+            }
+            .author{
+                position:relative;
+                padding-left: 10px;
+			 	&:after{
+					@include after(0px,2px,3px,20px);
+				    background-color:$base-color;
+				}
+				.dot{
+					margin: 2px 10px;
+					width:5px;
+					height:5px;
+					border-radius: $rd-circle;
+					background-color:$dark-color-1;
+					display: inline-flex;
+				}
+            }
+        }
+    }
+    
+    .owl-dots{
+        text-align: center;
+    }
+    .owl-dot span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: $eee;
+        margin: 0 6px;
+        border-radius: $rd-circle;
+        @include ease(0.5);
+    }
+    .owl-dot.active span {
+        background-color: $base-color;
+    }
+
+    .owl-stage-outer {
+        padding-bottom: 30px;
+    }
+}
+

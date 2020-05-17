@@ -1,0 +1,118 @@
+
+/* -----------------------------------
+		Menu
+----------------------------------- */
+.main-menu {
+	position:fixed;
+	transform-origin: left top;
+	transform:rotate(-90deg) translateX(-100%);
+	width:100vh; 
+	height:100px;
+	.cross{
+		display: none;
+		width:35px;
+		height: 35px;
+		text-align: center;
+		border-radius: $rd-circle;
+		position: absolute;
+		right:35px;
+		top:35px;
+		i{
+			line-height: 35px;
+		}
+	}
+
+	.menu{
+		display: flex!important;
+    	-ms-flex-preferred-size: auto;
+		flex-basis: auto;
+	
+		.menu-nav {    
+			margin:-2px auto 0 auto; 
+			height: 100px; 
+			display: flex;
+			padding-left: 0;
+			-webkit-box-orient: horizontal;
+    		-webkit-box-direction: reverse;
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+.nav-link{
+	float:right;
+    height:100%;
+	line-height:100px;
+	padding: 0px 15px;
+	text-align: center;
+	color:$dark-color-0 ;
+	font-size: 16px; 
+	font-weight: $f-w-500;
+	position: relative;
+	text-transform:capitalize;
+	@include ease(0.5);
+	&.active 
+	,&:focus
+	,&:hover{
+		color:$base-color !important;
+ 		@include ease(0.5);
+	}
+
+	&:hover:after,
+	&.active:after {
+		@include after(0px,auto,6px,6px);	  
+		background-color: $base-color;
+		right:0;
+		bottom: 30px;
+		border-radius: $rd-circle;
+		text-align: center;
+		margin: auto;
+	}	
+}
+
+.menu-toggle{
+	right:40px;
+	top:30px;
+	z-index: 999;
+	text-align: center;
+	position: fixed;
+	width:35px;
+	height:35px;
+	display:none;
+	background-color: $base-color;
+	border-radius: $rd-circle;
+		
+	span{
+		width: 5px;
+        height: 5px;
+		background-color: $white-color;
+		display: block;
+		position: absolute;
+		top:15px;
+		left:15px;
+		border-radius: $rd-circle;
+			
+		&:after,
+		&:before{
+			height: 5px;
+			width: 5px;
+			background-color: $white-color;
+			position: absolute;
+			content:"";
+			display: block;
+			border-radius: $rd-circle;
+		}
+		&:after{
+			bottom: -9px;
+		}
+		&:before{
+			top: -9px;
+		}
+	}
+}
+
+
+
+
+
+

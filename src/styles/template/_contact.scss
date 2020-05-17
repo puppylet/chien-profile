@@ -1,0 +1,51 @@
+/* ------------------------------
+		Contact 
+------------------------------ */
+.contact{
+	::-moz-placeholder {
+        color: $dark-color-0 !important;
+    }
+	.contact-info{
+        .item{
+			.fa-phone{
+				transform: rotate(90deg);
+			}
+			i{
+				margin-right: 10px;
+				font-size:14px;
+			}
+        }
+    } 
+}
+
+.form{
+	padding:30px;
+	position: relative;
+	z-index: 1;
+	margin-bottom: 30px;
+    @include box;
+	.form-group{
+      	margin-bottom: 20px;
+	}
+ 	.form-control{
+		background-color: transparent;
+		border:none;
+		border:1px solid $eee; 
+		border-radius: $rd-round;
+		padding: 10px;
+		font-size: 16px;
+		color:$dark-color-0;
+		display: inline-block;
+		@include ease(0.3);
+		&:focus{
+			border:1px solid $base-color; 
+			box-shadow: none;
+		}
+		::-moz-placeholder{
+			color: $dark-color-0 !important;
+		}
+	}
+}
+
+
+

@@ -1,0 +1,38 @@
+/* ------------------------------
+		. Services 
+------------------------------ */
+.services{
+	.item{
+		padding: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        border-radius: $rd-round;
+        background-color: $bg-light;
+        @include ease(0.7);
+        &:hover{
+            transform: translateY(-10px);
+            background-color: $white-color;
+            @include shadow;
+            .circle{
+                border:1px solid $white-color;
+               background-color:$light-b-color;
+            } 
+		}
+		.circle{
+            width:80px;
+            height:80px;
+            background-color:transparent;
+            border-radius: $rd-circle;
+            text-align: center;
+            margin: auto;
+            border:1px solid $base-color;
+            @include ease(0.5);
+          
+            h2{
+                line-height:80px;
+                color:$base-color;
+                font-weight: $f-w-700;
+            }
+		}
+	}
+}

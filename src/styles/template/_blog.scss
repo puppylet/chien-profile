@@ -1,0 +1,42 @@
+/* ---------------------------------
+		Blog 
+--------------------------------- */
+.blog{
+	.item{
+		position: relative;
+		margin-bottom:30px;
+		@include ease(0.5);
+		&:hover{
+			transform: translateY(-10px);
+		}
+	
+		.content{
+			position: relative;
+			margin:-50px 20px auto 20px;
+			padding: 20px;
+			border-radius:$rd-round;
+			background-color: $white-color;
+			@include shadow;
+			small{
+				position:relative;
+			 	&:after{
+					@include after(-20px,-4px,3px,26px);
+				    background-color:$base-color;
+				}
+				.dot{
+					margin:2px 10px;
+					width:5px;
+					height:5px;
+					border-radius: $rd-circle;
+					background-color:$dark-color-1;
+					display: inline-flex;
+				}	
+			}
+			
+			h5{
+				text-transform: capitalize;
+		        line-height: 1.2;
+			}
+		}	
+	}
+}

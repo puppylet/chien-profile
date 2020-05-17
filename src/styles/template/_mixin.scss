@@ -1,0 +1,40 @@
+
+//mixin
+@mixin easeInOut($delay){
+    transition: all $delay+s ease-in-out;
+}
+@mixin ease($delay){
+    transition: all $delay+s ease;
+}
+
+@mixin shadow(){
+	box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+}
+
+@mixin after($left,$top,$width,$height){
+    position: absolute;
+	content:"";
+	left:$left;
+	top:$top;
+	width:$width;
+	height:$height;
+}
+
+@mixin social-media(){
+  	ul li:not(:last-child){
+		padding-right: 15px;
+	}
+
+	i{
+		font-size: 16px;
+		&:hover{
+            color:$base-color;
+		}
+	}	    
+}
+
+@mixin box(){
+	background-color: $bg-light;
+	border-radius: $rd-round;
+}
+

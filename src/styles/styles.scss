@@ -14,7 +14,15 @@
 
 @import'pages/all';
 
+@import'common';
+
+@import'template/main.scss';
+
 body {
   padding: 0;
   margin: 0;
+  .Home {
+    white-space: pre-wrap;
+  }
+
 }
