@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import LazyLoad from './utils/LazyLoad'
-
-const Test = () => <LazyLoad component={React.lazy(() => import('./scenes/Test'))} />
-const Home = () => <LazyLoad component={React.lazy(() => import('./scenes/Home'))} />
+import Home from './scenes/Home'
+import Test from './scenes/Test'
 export default class Routes extends Component {
   render () {
     return (
