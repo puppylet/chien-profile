@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import {Nav} from 'react-bootstrap'
 
 export default class MainMenu extends Component {
   render () {
 
-    const menus = ['home', 'about', 'projects', 'designs', 'clients', 'testimonials', 'contact']
+    const menus = ['home', 'about', 'projects', 'designs', 'source', 'clients', 'contact']
 
     return (
       <div className="main-menu" id="js-menu">
@@ -11,11 +12,20 @@ export default class MainMenu extends Component {
           <span><i className="fas fa-times text-white"/></span>
         </div>
         <nav className="menu">
-          <ul className="menu-nav">
-            {menus.map((menu, index) =><li className="nav-item">
-              <a className="nav-link" href={`#${menu}`}>{menu}</a>
-            </li>)}
-          </ul>
+          <Nav
+            className='menu-nav'
+            activeKey="/#"
+            onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+          >
+            {menus.map((menu, index) => <Nav.Item>
+              <Nav.Link
+                id={'nav-'+menu}
+                className='main-nav-item'
+                href={`#${menu}`}>
+                {menu}
+              </Nav.Link>
+            </Nav.Item>)}
+          </Nav>
         </nav>
       </div>
     )

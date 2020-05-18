@@ -24,3 +24,4 @@ yarn-error.log*
 .idea/
 /config/s3.json
 .env
+template

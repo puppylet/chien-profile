@@ -198,7 +198,7 @@ module.exports = {
     .then(project => {
       const { photos } = project
       photos.splice(index, 1)
-      Project.update({ _id }, photos)
+      Project.update({ _id }, {photos})
       .then(doc2 => !doc2
         ? res.status(404).send({ error: 'Project does not exist' })
         : res.status(200).send({ status: true, message: 'remove photo successfully', photos }))

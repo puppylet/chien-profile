@@ -1,6 +1,14 @@
 .skills {
+  .row > div {
+    margin-bottom: 10px;
+  }
+
   .progress {
-    height: 6px
+    height: 6px;
+  }
+
+  .progress-bar {
+    background-color: $base-color;
   }
   margin-bottom: 30px;
 }

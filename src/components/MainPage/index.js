@@ -4,6 +4,8 @@ import About from './About'
 import Projects from './Projects'
 import Social from './Social'
 import Footer from './Footer'
+import TestBootstrap from "./TestBootstrap";
+import Contact from "./Contact";
 
 export default class MainPage extends Component {
   render () {
@@ -12,6 +14,8 @@ export default class MainPage extends Component {
         <HomePage />
         <About />
         <Projects />
+
+        <Contact/>
 
         <Footer />
         <Social />
