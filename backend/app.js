@@ -12,7 +12,7 @@ const https = require('https');
 require('dotenv').config();
 
 mongoose.Promise = require('bluebird');
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/chien-profile', { useMongoClient: true });
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/chien-profile', { useNewUrlParser: true });
 
 const app = express();
 app.use(cors());

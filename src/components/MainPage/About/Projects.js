@@ -49,8 +49,6 @@ export default class Projects extends Component {
 					<ProjectItem/>
 					<ProjectItem/>
 					<ProjectItem/>
-					<ProjectItem/>
-					<ProjectItem/>
 				</div>
 			</div>
 		</section>
