@@ -13,7 +13,7 @@ export default class MainMenu extends Component {
         </div>
         <nav className="menu">
           <Nav className='menu-nav' activeKey="/#">
-            {menus.map((menu, index) => <Nav.Item>
+            {menus.map((menu, index) => <Nav.Item key={index}>
               <Nav.Link
                 id={'nav-'+menu}
                 className='main-nav-item'

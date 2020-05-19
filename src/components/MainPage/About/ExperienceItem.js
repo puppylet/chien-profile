@@ -16,7 +16,7 @@ export default ({experience, allTechs}) => {
       <h6 className="text-dark mb-0">{experience.position}</h6>
       <b className="text-muted">{experience.name}</b>
 
-      <p className="text-dark pt-15 mb-0">
+      <div className="text-dark pt-15 mb-0">
         <ShowMore
           lines={2}
           more=' show more'
@@ -25,12 +25,12 @@ export default ({experience, allTechs}) => {
         >
           {experience.description}
         </ShowMore>
-      </p>
+      </div>
       {!!techs.length && <>
         <p style={{marginTop: 20}}><strong>Technologies used:</strong></p>
         <div className='row'>
           <div className='col-12'>
-            {techs.map(tech => <TechItem items={20} tech={tech} /> )}
+            {techs.map(tech => <TechItem key={tech.name} items={20} tech={tech} /> )}
           </div>
         </div>
       </>}

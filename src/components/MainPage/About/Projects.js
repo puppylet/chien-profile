@@ -11,13 +11,13 @@ const ProjectItem = ({name, photo, description}) => <div className="col-lg-3 col
 					</div>
 					<div className="flip-card-back">
 						<h5>Flownote</h5>
-						<p>
+						<div>
 							<ShowMore lines={6} more=''>
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, eligendi fugiat in
 								laudantium magni quod veritatis! Consequuntur debitis dolore mollitia nam obcaecati ratione? Asperiores
 								debitis earum iure provident quam suscipit.
 							</ShowMore>
-						</p>
+						</div>
 
 
 					</div>

@@ -216,6 +216,10 @@ ul {
   z-index: 1;
   @include ease(0.3);
 
+  &.hire_me {
+    margin-left: 10px;
+  }
+
   &.red {
     background-color: $red-color;
   }

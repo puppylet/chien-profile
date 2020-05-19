@@ -20,6 +20,6 @@ const educations = [
 export default () => <div className="col-lg-4">
 	<h5 className="text-dark mb-30">My Education</h5>
 	<div className="timeline">
-		{educations.map(edu => <EducationItem {...edu} />)}
+		{educations.map(edu => <EducationItem key={edu.name} {...edu} />)}
 	</div>
 </div>

@@ -16,6 +16,7 @@
     "dotenv": "^4.0.0",
     "express": "~4.15.2",
     "express-jwt": "^5.3.0",
+    "formik": "^2.1.4",
     "http": "0.0.0",
     "https": "^1.0.0",
     "jsonwebtoken": "^8.1.0",
@@ -42,7 +43,8 @@
     "s3-ls": "^3.0.0",
     "sharp": "0.22.1",
     "source-map-explorer": "^2.1.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "yup": "^0.29.0"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",

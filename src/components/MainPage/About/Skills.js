@@ -13,13 +13,13 @@ const skills = [
   {name: 'Amazone AWS', percentage: 60},
   {name: 'Computer & Network', percentage: 75},
   {name: 'MS Office (I\'ve taught it for 7 years)', percentage: 97},
-  {name: 'Training', percentage: 60},
+  {name: 'Training', percentage: 85},
 ];
 
 export default () => <div className='col-lg-7 skills'>
   <h5>My skills</h5>
   <div className='row'>
-    {skills.map(skill => <SkillItem {...skill} />)}
+    {skills.map(skill => <SkillItem key={skill.name} {...skill} />)}
   </div>
 
 
