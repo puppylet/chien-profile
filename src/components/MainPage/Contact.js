@@ -36,7 +36,7 @@ export default () => <section className="section contact pb-70" id="contact">
 					</div>
 
 					<button type="submit" name="submit" className="btn-custom">
-						<span><i className="fas fa-paper-plane"></i></span>
+						<span><i className="fas fa-paper-plane" /></span>
 						<span> Send Message</span>
 					</button>
 

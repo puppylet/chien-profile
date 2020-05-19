@@ -19,7 +19,6 @@ class Home extends Component {
         <Header />
         <MainPage />
 
-
         {isLoading && <div className="loading">
           <div className="circle" />
         </div>}

@@ -1,4 +1,4 @@
-@media screen and (max-width:991px){ 
+@media screen and (max-width:991px){
     .about .hero,
     .contact .contact-info {
         margin-bottom: 30px;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width:768px){
-   
+
     .header-left{
         transform: translateX(-100px);
         .logo,
@@ -23,16 +23,21 @@
             .cross{
                 display: block;
             }
+            .menu, .nav-item {
+                width: 100%;
+            }
 			.menu-nav{
 				flex-direction:column;
                 height: 100%;
+                width: 100%;
                 justify-content: center;
                 align-items: center;
-                
+
 				.nav-link{
+                    width: 100%;
 					padding: 15px 0;
 					line-height: 1.5;
-                    &.active:after 
+                    &.active:after
                     ,&:hover:after{
                           bottom:0;
 					}
@@ -40,7 +45,7 @@
 			}
 		}
     }
-   
+
     .social-footer{
         display: none !important;
     }
@@ -50,7 +55,7 @@
 
     .menu-toggle{
         display: block;
-    } 
+    }
 }
 
 @media screen and (max-width:567px){
@@ -84,7 +89,7 @@
     .about .details .info li{
         width:100%;
     }
-    
+
     .testimonials .item .content .data{
         flex-direction: column;
     }

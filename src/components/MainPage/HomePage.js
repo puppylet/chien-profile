@@ -9,11 +9,11 @@ export default class HomePage extends Component {
             <div className="col-lg-12 ">
               <div className="social-home">
                 <ul className="list-inline">
-                  <li><a href="#" className="text-dark"><i className="fab fa-facebook-f"/></a></li>
-                  <li><a href="#" className="text-dark"><i className="fab fa-twitter"/></a></li>
-                  <li><a href="#" className="text-dark"><i className="fab fa-instagram"/></a></li>
-                  <li><a href="#" className="text-dark"><i className="fab fa-dribbble"/></a></li>
-                  <li><a href="#" className="text-dark"><i className="fab fa-behance"/></a></li>
+                  <li><a href="https://google.com" className="text-dark"><i className="fab fa-facebook-f"/></a></li>
+                  <li><a href="https://google.com" className="text-dark"><i className="fab fa-twitter"/></a></li>
+                  <li><a href="https://google.com" className="text-dark"><i className="fab fa-instagram"/></a></li>
+                  <li><a href="https://google.com" className="text-dark"><i className="fab fa-dribbble"/></a></li>
+                  <li><a href="https://google.com" className="text-dark"><i className="fab fa-behance"/></a></li>
                 </ul>
               </div>
 
@@ -46,7 +46,7 @@ export default class HomePage extends Component {
               <div className="my-info">
                 <div className="item">
                   <p className="text-dark font-w-700 mb-0">Email</p>
-                  <p className="text-dark mb-0">me@chiendzign.info</p>
+                  <p className="text-dark mb-0">me@chiendezign.info</p>
                 </div>
 
                 <div className="item">
