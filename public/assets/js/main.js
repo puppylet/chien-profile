@@ -117,8 +117,10 @@ Table of Content
 		testimonials();
 		magnificPopup();
 
+		$('body').scrollspy({target: ".menu-nav", offset: 50});
+
 		$(window).scroll(function () {
-			$($('section').get().reverse()).each(function () {
+			$('section').each(function () {
 				var top_of_element = $(this).offset().top;
 				var bottom_of_element = $(this).offset().top + $(this).outerHeight();
 				var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
@@ -126,8 +128,8 @@ Table of Content
 
 				if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
 					// the element is visible, do something
-					console.log(`${$(this).attr('id')} is on screen`)
-
+					// console.log(`${$(this).attr('id')} is on screen`)
+					window.location.hash = $(this).attr('id')
 					return false;
 
 				} else {

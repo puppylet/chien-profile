@@ -12,11 +12,7 @@ export default class MainMenu extends Component {
           <span><i className="fas fa-times text-white"/></span>
         </div>
         <nav className="menu">
-          <Nav
-            className='menu-nav'
-            activeKey="/#"
-            onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-          >
+          <Nav className='menu-nav' activeKey="/#">
             {menus.map((menu, index) => <Nav.Item>
               <Nav.Link
                 id={'nav-'+menu}
