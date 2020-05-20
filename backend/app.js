@@ -46,6 +46,8 @@ app.use('/client', require('./src/routes/client'));
 app.use('/project', require('./src/routes/project'));
 app.use('/experience', require('./src/routes/experience'));
 app.use('/profile', require('./src/routes/profile'));
+app.use('/hiring', require('./src/routes/hiring'));
+app.use('/contact', require('./src/routes/contact'));
 app.use((req, res, next) => {const err = new Error('Not Found');  err.status = 404;  next(err)});
 app.use((err, req, res, next) => res.status(err.status || 500).end());
 

@@ -6,7 +6,7 @@ const s3Config = require('../../../config/s3')
 const sharp = require('sharp')
 const s3 = new AWS.S3(options = s3Config)
 
-const {checkRole, createPassword} = require('../libs/auth')
+const {checkRole} = require('../libs/auth')
 
 module.exports = {
   create: (req, res) => {
@@ -73,54 +73,6 @@ module.exports = {
     .catch(err => res.status(500).send({error: err}))
   },
 
-  update: (req, res) => {
-    const {auth} = req
-    if (!checkRole('write-testimonial', auth)) return res.status(401).end()
-    const {credit, cpTestimonial, vipTime, testimonialName, email, ...body} = req.body
-    if (body.password) body.password = createPassword(body.password)
-    const _id = req.params.id
-    body.updated_at = new Date()
-
-    if (body.avatar) {
-      const base64Data = new Buffer(body.avatar.replace(/^data:image\/\w+;base64,/, ''), 'base64')
-      const type = body.avatar.split(';')[0].split('/')[1]
-      sharp(base64Data)
-      .jpeg({quality: 90, force: false})
-      .png({compressionLevel: 9, force: false})
-      .toBuffer()
-      .then(function (outputBuffer) {
-        const params = {
-          Bucket: s3Config.bucket,
-          Key: `staging/avatars/${_id}.${type}`,
-          UploadId: uuid.v1(),
-          Body: outputBuffer,
-          ACL: 'public-read',
-          ContentEncoding: 'base64',
-          ContentType: `image/${type}`
-        }
-        s3.upload(params, (err, data) => {
-          if (err) res.status(500).send({error: err})
-          body.avatar = data.Location
-          Testimonial.update({_id: {$in: _id}}, body)
-          .then(doc => !doc
-            ? res.status(404).send({error: 'Testimonial does not exist'})
-            : res.status(200).send({status: true, message: 'Update successfully'}))
-          .catch(err => res.status(500).send({error: err}))
-        })
-      })
-    } else {
-      Testimonial.update({_id: {$in: _id}}, body)
-      .then(doc => !doc
-        ? res.status(404).send({error: 'Testimonial does not exist'})
-        : res.status(200).send({status: true, message: 'Update successfully'}))
-      .catch(err => {
-        console.log(err)
-        res.status(500).send({error: err})
-      })
-    }
-
-
-  },
   remove: (req, res) => {
     const {auth} = req
     if (!checkRole('write-testimonial', auth)) return res.status(401).end()
