@@ -14,10 +14,8 @@ module.exports = {
   },
 
   findAll: (req, res) => {
-
     const { auth } = req
     if (!checkRole('list-hiring', auth)) return res.status(401).end()
-
     const page = req.query.page * 1 || 1
     const limit = req.query.limit * 1 || 1000
     const offset = (page - 1) * limit
@@ -28,11 +26,18 @@ module.exports = {
     if (req.query.isActive) query.isActive = req.query.isActive
     if (req.query.sortingField) sort = { [req.query.sortingField]: req.query.sortType === 'ASC' ? 1 : -1 }
 
-    Hiring.count(query)
+    Hiring.countDocuments(query)
     .then(total => Hiring.find(query).limit(limit).skip(offset).sort(sort).select()
     .then(docs => res.status(200).send({ data: docs, total }))
-    .catch(err => res.status(500).send(err)))
-    .catch(err => res.status(500).send(err))
+    .catch(err => {
+      console.log(err)
+      res.status(500).send(err)
+
+    }))
+    .catch(err => {
+      console.log(err)
+      res.status(500).send(err)
+    })
   },
 
   findOne: (req, res) => {

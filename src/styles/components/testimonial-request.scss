@@ -1,0 +1,19 @@
+#testimonial_request {
+  position: fixed;
+  width: 350px;
+  min-height: 100px;
+  bottom: 100px;
+  right: -360px;
+  background: $base-color;
+  border-radius: 5px;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  transition: right .3s ease-in-out;
+
+  text-transform: none !important;
+
+  &.active {
+    right: 30px;
+  }
+}

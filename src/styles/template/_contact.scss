@@ -21,14 +21,15 @@
 }
 
 .form {
-  padding: 30px;
+  //padding: 30px;
   position: relative;
   z-index: 1;
-  margin-bottom: 30px;
-  @include box;
+  //margin-bottom: 30px;
+  //@include box;
 
   &.hire-form {
-    margin-bottom: 0
+    margin-bottom: 0;
+    padding: 30px;
   }
 
   .form-group {
@@ -42,8 +43,8 @@
     //border: none;
     //border: 1px solid $dark-color-1;
     //border-radius: $rd-round;
-    padding: 10px;
-    font-size: 14px;
+    padding: 8px;
+    //font-size: 15px;
     font-weight: 300;
     color: $dark-color-0;
     display: inline-block;

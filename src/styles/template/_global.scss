@@ -220,6 +220,22 @@ ul {
     margin-left: 10px;
   }
 
+  &.white {
+    background-color: white;
+    color: #000 !important;
+
+    &:hover {color: white !important}
+  }
+
+  &.margin {
+    margin: 10px;
+  }
+
+  &.width-100 {
+    width: 100%;
+    padding: 10px 80px;
+  }
+
   &.red {
     background-color: $red-color;
   }

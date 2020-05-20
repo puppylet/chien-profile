@@ -7,12 +7,12 @@ export default class MainMenu extends Component {
     const menus = ['home', 'about', 'projects', 'designs', 'source', 'clients', 'contact']
 
     return (
-      <div className="main-menu" id="js-menu">
-        <div className="cross bg-base-color">
-          <span><i className="fas fa-times text-white"/></span>
+      <div className='main-menu' id='js-menu'>
+        <div className='cross bg-base-color'>
+          <span><i className='fas fa-times text-white'/></span>
         </div>
-        <nav className="menu">
-          <Nav className='menu-nav' activeKey="/#">
+        <nav className='menu'>
+          <Nav className='menu-nav' activeKey='/#'>
             {menus.map((menu, index) => <Nav.Item key={index}>
               <Nav.Link
                 id={'nav-'+menu}

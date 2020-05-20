@@ -4,10 +4,11 @@ import About from './About'
 import Projects from './About/Projects'
 import Social from './Social'
 import Footer from './Footer'
-import Contact from "./Contact";
+import Contact from './Contact';
 import Designs from './Designs'
-import Clients from "./Clients";
-import Source from "./Source";
+import Clients from './Clients';
+import Source from './Source';
+import TestimonialRequest from './TestimonialRequest'
 
 export default class MainPage extends Component {
   render () {
@@ -22,6 +23,7 @@ export default class MainPage extends Component {
         <Contact/>
         <Footer />
         <Social />
+        <TestimonialRequest />
       </div>
     )
   }

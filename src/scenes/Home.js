@@ -6,9 +6,10 @@ import { connect } from 'react-redux'
 
 class Home extends Component {
   componentDidMount () {
-    this.props.dispatch({
-      type: 'GET_PROFILE'
-    })
+    const {dispatch} = this.props
+    const userInfo = window.localStorage.getItem('userInfo')
+    if (userInfo) dispatch({type: 'GET_USER_INFO', payload: JSON.parse(userInfo)})
+    dispatch({type: 'GET_PROFILE'})
   }
 
   render () {

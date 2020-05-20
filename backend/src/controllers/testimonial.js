@@ -10,9 +10,6 @@ const {checkRole} = require('../libs/auth')
 
 module.exports = {
   create: (req, res) => {
-    const {auth} = req
-    if (!checkRole('create-testimonial', auth)) return res.status(401).end()
-
     const body = req.body
     const {avatar, ...data} = body
     const testimonial = new Testimonial(data)
@@ -29,7 +26,7 @@ module.exports = {
       .toBuffer()
       .then(function (outputBuffer) {
         const params = {
-          Bucket: s3Config.bucket,
+          Bucket: s3Config.fileBucket,
           Key: `avatars/${_id}.${type}`,
           UploadId: uuid.v1(),
           Body: outputBuffer,

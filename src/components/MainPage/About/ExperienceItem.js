@@ -10,13 +10,13 @@ export default ({experience, allTechs}) => {
   let toStr = ''
   if (isCurrent) toStr = 'present'
   else toStr = moment(to).format('MM/YYYY')
-  return <div className="item">
-    <div className="content">
-      <small className="text-muted">{fromStr} - {toStr}</small>
-      <h6 className="text-dark mb-0">{experience.position}</h6>
-      <b className="text-muted">{experience.name}</b>
+  return <div className='item'>
+    <div className='content'>
+      <small className='text-muted'>{fromStr} - {toStr}</small>
+      <h6 className='text-dark mb-0'>{experience.position}</h6>
+      <b className='text-muted'>{experience.name}</b>
 
-      <div className="text-dark pt-15 mb-0">
+      <div className='text-dark pt-15 mb-0'>
         <ShowMore
           lines={2}
           more=' show more'

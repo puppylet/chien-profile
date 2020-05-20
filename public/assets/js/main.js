@@ -109,6 +109,7 @@ Table of Content
 
 	});
 
+
 	// Document on Ready
 	$(document).on("ready", function () {
 		"use strict";
@@ -118,6 +119,12 @@ Table of Content
 		magnificPopup();
 
 		$('body').scrollspy({target: ".menu-nav", offset: 50});
+
+		$(window).scroll(function() {
+			if ($('#nav-clients').hasClass('active')) {
+				$('#testimonial_request').addClass('active');
+			} else $('#testimonial_request').removeClass('active');
+		})
 	});
 
 })(jQuery);

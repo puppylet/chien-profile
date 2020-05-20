@@ -1,5 +1,5 @@
 import React from 'react'
-import SkillItem from "./SkillItem";
+import SkillItem from './SkillItem';
 
 const skills = [
   {name: 'HTML5 - Master at building responsive layout', percentage: 95},
