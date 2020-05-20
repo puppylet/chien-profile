@@ -1,13 +1,8 @@
 const mongoose = require('mongoose')
 const Experience = mongoose.model('Experience')
-const uuid = require('uuid')
-const AWS = require('aws-sdk')
-const s3Config = require('../../../config/s3')
-const sharp = require('sharp')
-const roles = require('../../../config/roles')
-const s3 = new AWS.S3(options = s3Config)
+const s3Upload = require('../libs/s3Upload')
 
-const { checkRole, createPassword } = require('../libs/auth')
+const { checkRole } = require('../libs/auth')
 
 module.exports = {
   create: (req, res) => {
@@ -16,40 +11,23 @@ module.exports = {
 
     const body = req.body
     body.created_at = new Date()
-    body.password = createPassword(body.password)
-    body.birthday = new Date(body.birthday)
     const { logo, ...data } = body
     const experience = new Experience(data)
     experience.save()
     .then(doc => {
       const { _id } = doc
-      if (!body.logo) res.status(201).send({ status: true, message: 'Create experience successfully', _id })
-      const base64Data = new Buffer(logo.replace(/^data:image\/\w+;base64,/, ''), 'base64')
-      const type = logo.split(';')[0].split('/')[1]
-      sharp(base64Data)
-      .jpeg({ quality: 90, force: false })
-      .png({ compressionLevel: 9, force: false })
-      .toBuffer()
-      .then(function(outputBuffer) {
-        const params = {
-          Bucket: s3Config.bucket,
-          Key: `logos/${_id}.${type}`,
-          UploadId: uuid.v1(),
-          Body: outputBuffer,
-          ACL: 'public-read',
-          ContentEncoding: 'base64',
-          ContentType: `image/${type}`
-        }
-        s3.upload(params, (err, data) => {
-          if (err) res.status(500).send({ error: err })
-          const newLogo = { logo: data.Location }
-          Experience.update({ _id }, newLogo)
-          .then(doc2 => !doc2
-            ? res.status(404).send({ error: 'Experience does not exist' })
-            : res.status(200).send({ status: true, message: 'Create experience successfully', _id }))
-          .catch(err => res.status(500).send({ error: err }))
-        })
-      })
+      if (!logo) res.status(201).send({ status: true, message: 'Create experience successfully', _id })
+      const imageData = {image: body.logo, Key: `logos/${_id}`}
+      const handleUpload = (err, data) => {
+        if (err) res.status(500).send({ error: err })
+        const newLogo = { logo: data.Location }
+        Experience.update({ _id }, newLogo)
+        .then(doc2 => !doc2
+          ? res.status(404).send({ error: 'Experience does not exist' })
+          : res.status(200).send({ status: true, message: 'Create experience successfully', _id }))
+        .catch(err => res.status(500).send({ error: err }))
+      }
+      s3Upload.uploadImage(imageData, handleUpload)
     })
     .catch(err => res.status(500).send(err))
   },
@@ -96,32 +74,17 @@ module.exports = {
     body.updated_at = new Date()
 
     if (body.logo) {
-      const base64Data = new Buffer(body.logo.replace(/^data:image\/\w+;base64,/, ''), 'base64')
-      const type = body.logo.split(';')[0].split('/')[1]
-      sharp(base64Data)
-      .jpeg({ quality: 90, force: false })
-      .png({ compressionLevel: 9, force: false })
-      .toBuffer()
-      .then(function(outputBuffer) {
-        const params = {
-          Bucket: s3Config.bucket,
-          Key: `logos/${_id}.${type}`,
-          UploadId: uuid.v1(),
-          Body: outputBuffer,
-          ACL: 'public-read',
-          ContentEncoding: 'base64',
-          ContentType: `image/${type}`
-        }
-        s3.upload(params, (err, data) => {
-          if (err) res.status(500).send({ error: err })
-          body.logo = data.Location
-          Experience.update({ _id: { $in: _id } }, body)
-          .then(doc => !doc
-            ? res.status(404).send({ error: 'Experience does not exist' })
-            : res.status(200).send({ status: true, message: 'Update successfully' }))
-          .catch(err => res.status(500).send({ error: err }))
-        })
-      })
+      const imageData = {image: body.logo, Key: `logos/${_id}`}
+      const handleUpload = (err, data) => {
+        if (err) res.status(500).send({ error: err })
+        body.logo = data.Location
+        Experience.update({ _id: { $in: _id } }, body)
+        .then(doc => !doc
+          ? res.status(404).send({ error: 'Experience does not exist' })
+          : res.status(200).send({ status: true, message: 'Update successfully' }))
+        .catch(err => res.status(500).send({ error: err }))
+      }
+      s3Upload.uploadImage(imageData, handleUpload)
     } else {
       Experience.update({ _id: { $in: _id } }, body)
       .then(doc => !doc

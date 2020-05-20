@@ -11,8 +11,13 @@ const https = require('https');
 
 require('dotenv').config();
 
+const mongoUri = process.env.MONGO_URI || 'mongodb://localhost/chien-profile';
 mongoose.Promise = require('bluebird');
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/chien-profile', { useNewUrlParser: true });
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+});
 
 const app = express();
 app.use(cors());
