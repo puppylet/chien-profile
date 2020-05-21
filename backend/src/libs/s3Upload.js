@@ -1,7 +1,7 @@
 const uuid = require('uuid')
 const AWS = require('aws-sdk')
 const s3Config = require('../../../config/s3')
-
+s3Config.bucket = s3Config.fileBucket
 const s3 = new AWS.S3(options = s3Config)
 
 const uploadImage = ({image, name}, callback) => {
