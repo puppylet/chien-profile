@@ -54,7 +54,7 @@ module.exports = {
     const offset = (page - 1) * limit
     const query = {}
     let sort = {_id: -1}
-    Testimonial.count(query)
+    Testimonial.countDocuments(query)
     .then(total => Testimonial.find(query).limit(limit).skip(offset).sort(sort).select()
     .then(docs => res.status(200).send({data: docs, total}))
     .catch(err => res.status(500).send(err)))

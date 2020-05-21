@@ -4,12 +4,12 @@ const s3Config = require('../../../config/s3')
 s3Config.bucket = s3Config.fileBucket
 const s3 = new AWS.S3(options = s3Config)
 
-const uploadImage = ({image, name}, callback) => {
+const uploadImage = ({image, Key}, callback) => {
   const base64Data = new Buffer(image.replace(/^data:image\/\w+;base64,/, ''), 'base64')
   const type = image.split(';')[0].split('/')[1]
   const params = {
     Bucket: s3Config.fileBucket,
-    Key: `name.${type}`,
+    Key: `${Key}.${type}`,
     UploadId: uuid.v1(),
     Body: base64Data,
     ACL: 'public-read',

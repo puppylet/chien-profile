@@ -28,7 +28,7 @@ module.exports = {
     if (req.query.isActive) query.isActive = req.query.isActive
     if (req.query.sortingField) sort = { [req.query.sortingField]: req.query.sortType === 'ASC' ? 1 : -1 }
 
-    Contact.count(query)
+    Contact.countDocuments(query)
     .then(total => Contact.find(query).limit(limit).skip(offset).sort(sort).select()
     .then(docs => res.status(200).send({ data: docs, total }))
     .catch(err => res.status(500).send(err)))

@@ -48,7 +48,7 @@ module.exports = {
     if (req.query.isActive) query.isActive = req.query.isActive
     if (req.query.sortingField) sort = { [req.query.sortingField]: req.query.sortType === 'ASC' ? 1 : -1 }
 
-    Client.count(query)
+    Client.countDocuments(query)
     .then(total => Client.find(query).limit(limit).skip(offset).sort(sort).select('-password')
     .then(docs => res.status(200).send({ data: docs, total }))
     .catch(err => res.status(500).send(err)))
