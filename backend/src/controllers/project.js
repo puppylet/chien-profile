@@ -75,7 +75,7 @@ module.exports = {
       const handleUpload = (err, data) => {
         if (err) res.status(500).send({ error: err })
         body.logo = data.Location
-        Project.update({ _id: { $in: _id } }, body)
+        Project.updateOne({_id}, body)
         .then(doc => !doc
           ? res.status(404).send({ error: 'Project does not exist' })
           : res.status(200).send({ status: true, message: 'Update successfully' }))
