@@ -10,11 +10,9 @@ const AWS = require('aws-sdk')
 const chalk = require('chalk')
 const Glob = require('glob')
 const Mime = require('mime')
-const exec = require('child_process').exec
 require('colors')
 
-const paths = require('../config/paths')
-const buildFolder = Path.relative(process.cwd(), paths.appBuild)
+const buildFolder = Path.relative(process.cwd(), 'build')
 
 let config, s3, cloudfront
 
