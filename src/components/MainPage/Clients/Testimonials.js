@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel'
 
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
@@ -22,7 +21,7 @@ export default () => {
             centerSlidePercentage
             infiniteLoop
             stopOnHover
-
+            showThumbs={false}
           >
             {testimonials && testimonials.map((testimonial, index) => {
               return <div className='item d-flex'>
