@@ -25,3 +25,4 @@ yarn-error.log*
 /config/s3.json
 .env
 template
+package-lock.json
