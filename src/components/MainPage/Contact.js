@@ -1,7 +1,42 @@
-import React, {useState} from 'react'
+import React, { useState, Component } from 'react'
 import ContactForm from './About/ContactForm'
 import { Modal } from 'react-bootstrap'
 import SuccessIcon from '../common/SuccessIcon'
+import { GoogleMap, Marker, withScriptjs, withGoogleMap } from 'react-google-maps'
+
+class Map extends Component {
+  static defaultProps = {
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDsyixOriuR2FDRsrOHkvlUhzVJ6A0JpiM",
+  }
+//10.8822698,106.6957427
+  CMap = withScriptjs(withGoogleMap(props =>
+    <GoogleMap
+      defaultZoom={15}
+      defaultCenter={{ lat: 10.8822698, lng: 106.6957427}}
+    >
+
+      {props.children}
+    </GoogleMap>
+  ));
+
+  render() {
+    return (
+      <>
+        <this.CMap
+          googleMapURL={this.props.googleMapURL}
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `300px` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+          center= {{ lat: 10.8822698, lng: 106.6957427}}
+        >
+          <Marker
+            position={{ lat: 10.8822698, lng: 106.6957427 }}
+          />
+        </this.CMap>
+      </>
+    );
+  }
+}
 
 export default () => {
   const [success, setSuccess] = useState(false)
@@ -23,6 +58,12 @@ export default () => {
           </div>
         </div>
       </div>
+      <div className='row mb-50'>
+        <div className='col-lg-12'>
+          <Map />
+        </div>
+      </div>
+
       <div className='row'>
         <div className='col-lg-6'>
           <ContactForm onSuccess={handleSuccess} />

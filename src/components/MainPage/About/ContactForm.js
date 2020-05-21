@@ -37,7 +37,7 @@ export default ({ onSuccess }) => {
     initialValues: { title: 'Mr.', subject: '', message: '', name: '', email: '' }
   })
 
-  const { values, handleSubmit, handleChange, setFieldValue } = contactInfo
+  const { values, handleSubmit, handleChange, setFieldValue, resetForm } = contactInfo
   const { name, email, subject, message, title } = values
 
   const userInfo = useSelector(state => state.user)
@@ -113,7 +113,9 @@ export default ({ onSuccess }) => {
       {/*<ErrorMessage name='subject' />*/}
     </Form.Group>
 
-    <button type='button' className='btn-custom' onClick={handleSubmit} disabled={loading}>
+    <button type='button' className='btn-custom grey' onClick={resetForm}>Clear form</button>
+
+    <button type='button' className='btn-custom hire_me' onClick={handleSubmit} disabled={loading}>
       <span>
         {!loading && <i className='fas fa-paper-plane' />}
         {loading && <i className='fa fa-spin fa-spinner' />}
