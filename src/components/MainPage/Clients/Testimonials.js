@@ -3,14 +3,24 @@ import { useSelector } from 'react-redux'
 
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { Row, Col } from 'react-bootstrap'
 
 
 export default () => {
   const testimonials = useSelector(state => state.profile.data.testimonial)
   // console.log(testimonials)
 
-  return <section className='section testimonials mt-0'>
-
+  return <section className='section testimonials mt-50'>
+    <div className='container  mb-50'>
+      <Row>
+        <Col md={12}>
+          <div className='section-title'>
+            <h2 className='text-dark mb-0'>Testimonials</h2>
+            <p className='text-muted mb-0'>What People Say About Me .</p>
+          </div>
+        </Col>
+      </Row>
+    </div>
 
     <div className='container'>
       <div className='row'>

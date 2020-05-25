@@ -23,7 +23,7 @@ export default () => {
 
   return <div className='col-lg-7 d-flex align-items-center'>
     <div className='details'>
-      <h5>Hi{userInfo.name ? ' ' + userInfo.title + ' ' + userInfo.name : ''}, I am Le Tat Chien</h5>
+      <h5>Hi{userInfo.name ? ' ' + (userInfo.title || 'Mr') + ' ' + userInfo.name : ''}, I am Le Tat Chien</h5>
       <p className='text-dark mb-25'>
         I am a Senior Web Developer - Graphic Designer who has
         an immense love for both computer science and art.

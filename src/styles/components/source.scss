@@ -1,8 +1,12 @@
 .source {
-    padding: 100px !important;
+    padding: 100px 0 !important;
+
     background: $base-color;
     text-align: center;
-
+    .container {
+        margin: 0 auto;
+        max-width: 800px;
+    }
     * {
         color: white !important;
     }

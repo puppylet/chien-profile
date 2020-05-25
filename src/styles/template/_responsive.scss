@@ -7,6 +7,10 @@
 
 @media screen and (max-width: 768px) {
 
+  .form-group.col-md-9 {
+    margin-bottom: 20px !important;
+  }
+
   .header-left {
     transform: translateX(-100px);
 
@@ -64,6 +68,22 @@
 }
 
 @media screen and (max-width: 567px) {
+  .modal-dialog {
+    .tech {
+      width: 16.666667% !important;
+    }
+    .client {
+      width: 25% !important;
+    }
+  }
+  .timeline {
+    .tech {
+      width: 12.5% !important;
+    }
+  }
+  .client {
+    width: 20%;
+  }
   h1 {
     font-size: $f-s-h2;
   }
@@ -106,5 +126,16 @@
 
   .cd-words-wrapper {
     display: block !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .about, #contact {
+    .btn-custom {width:100%}
+  }
+  .hire_me {
+    width: 100%;
+    margin-top: 10px;
+    margin-left:0 !important;
   }
 }

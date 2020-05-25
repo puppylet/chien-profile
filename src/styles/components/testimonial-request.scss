@@ -10,10 +10,21 @@
   padding: 20px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   transition: right .3s ease-in-out;
-
+  z-index: 999999;
+  max-width: calc(100vw - 60px);
   text-transform: none !important;
+
+  .hide_testimonial_request {
+    color: white;
+    display:block;
+    padding: 20px 0;
+  }
 
   &.active {
     right: 30px;
+  }
+
+  &.stranger {
+    right: -360px !important;
   }
 }

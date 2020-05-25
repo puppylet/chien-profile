@@ -8,7 +8,7 @@ export default class Designs extends Component {
           <div className='col-md-12'>
             <div className='section-title'>
               <h2 className='text-dark mb-0'>My Designs</h2>
-              <p className='text-muted mb-0'>A latest creative works in design and web .</p>
+              <p className='text-muted mb-0'>Some of my typical designs.</p>
             </div>
           </div>
         </div>

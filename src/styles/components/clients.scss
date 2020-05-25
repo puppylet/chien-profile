@@ -1,0 +1,31 @@
+.client-description {
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.clients {
+  margin-bottom: 16px;
+  background: #ddd;
+}
+
+.client {
+  width: 12.5%;
+  //background-color: $light-b-color;
+  float: left;
+
+  a {
+    display: block;
+    width: 90%;
+    padding-bottom: 45%;
+    filter: grayscale(100%);
+    background-size: cover;
+    border-radius: 5px;
+    //background-color: #ccc;
+    //opacity: 0.7;
+    margin: 5%;
+    &:hover {
+      opacity: 1;
+      filter: none
+    }
+  }
+}
