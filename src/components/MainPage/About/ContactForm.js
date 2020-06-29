@@ -45,6 +45,7 @@ export default ({ onSuccess }) => {
     setFieldValue('title', userInfo.title)
     setFieldValue('name', userInfo.name)
     setFieldValue('email', userInfo.email)
+    //eslint-disable-next-line
   }, [userInfo])
 
   const nameError = contactInfo.errors.name && contactInfo.touched.name

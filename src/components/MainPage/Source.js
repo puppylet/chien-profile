@@ -15,14 +15,15 @@ export default class Source extends Component {
                 Let's check the repos below and see what I can do in such a short amount of time.
               </p>
 
-
               <p>
                 <a
                   target="_blank" className='btn btn-custom white margin'
+                  rel='noopener noreferrer'
                   href='https://github.com/puppylet/chien-profile'>
                   The main page and back-end repo
                 </a>
                 <a
+                  rel='noopener noreferrer'
                   target="_blank" className='btn btn-custom white margin'
                   href='https://github.com/puppylet/chien_profile_admin'>
                   The CMS repo

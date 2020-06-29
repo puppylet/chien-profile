@@ -1,26 +1,14 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
+import React from 'react'
+import { Provider } from 'react-redux'
 
-import Routes from './Routes';
-import store, { history } from './redux/store';
-import './styles/styles.scss';
+import store from './redux/store'
+import './styles/styles.scss'
+import Home from './Home'
 
-function App() {
-  return (
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <div className='App'>
-          <BrowserRouter>
-            <div id='app-inner' style={{ height: '100%' }}>
-              <Routes />
-            </div>
-          </BrowserRouter>
-        </div>
-      </ConnectedRouter>
-    </Provider>
-  );
+function App () {
+  return <Provider store={store}>
+    <Home />
+  </Provider>
 }
 
-export default App;
+export default App

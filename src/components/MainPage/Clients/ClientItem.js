@@ -10,6 +10,7 @@ export default ({ client, items }) => <div style={{ width: 100 / items + '%' }} 
       data-placement='top'
       href={client.website}
       target='_blank'
-      style={{ backgroundImage: `url(${client.logo}` }} />
+      rel='noopener noreferrer'
+      style={{ backgroundImage: `url(${client.logo}` }} ><span>&nbsp;</span></a>
   </OverlayTrigger>
 </div>

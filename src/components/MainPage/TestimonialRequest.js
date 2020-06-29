@@ -21,7 +21,8 @@ export default () => {
     setTimeout(setSuccess, 5000)
   }
 
-  const handleStranger = () => {
+  const handleStranger = e => {
+    e.preventDefault()
     dispatch({type: 'GET_USER_INFO', payload: {isStranger: true}})
   }
 
@@ -31,7 +32,7 @@ export default () => {
       If yes, please let me know how you feel.
     </h6>
 
-    <a className="hide_testimonial_request" href='javascript:' onClick={handleStranger}>I'm stranger. Please hide this.</a>
+    <a className="hide_testimonial_request" href='/' onClick={handleStranger}>I'm stranger. Please hide this.</a>
 
     <button className='btn btn-custom white width-100' onClick={handleShow}>Give me a testimonial</button>
 

@@ -55,6 +55,7 @@ export default ({ handleClose, loading, onLoadingChanged, showSuccess }) => {
     setFieldValue('title', userInfo.title)
     setFieldValue('name', userInfo.name)
     setFieldValue('company', userInfo.company)
+    //eslint-disable-next-line
   }, [userInfo])
 
   const handleFileChange = event => {

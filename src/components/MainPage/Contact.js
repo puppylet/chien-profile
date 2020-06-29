@@ -6,7 +6,7 @@ import { GoogleMap, Marker, withScriptjs, withGoogleMap } from 'react-google-map
 
 class Map extends Component {
   static defaultProps = {
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDsyixOriuR2FDRsrOHkvlUhzVJ6A0JpiM",
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyA_ImsZvw7m4r1haW_DjDjstRm7AljFUrg",
   }
 //10.8822698,106.6957427
   CMap = withScriptjs(withGoogleMap(props =>

@@ -48,6 +48,7 @@ export default ({ handleClose, loading, onLoadingChanged, showSuccess }) => {
     setFieldValue('email', userInfo.email)
     setFieldValue('phone', userInfo.phone)
     setFieldValue('company', userInfo.company)
+    //eslint-disable-next-line
   }, [userInfo])
 
   const nameError = hireInfo.errors.name && hireInfo.touched.name

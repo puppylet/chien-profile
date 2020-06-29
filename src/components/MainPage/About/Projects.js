@@ -13,8 +13,9 @@ const ClientItem = ({ client, items }) => <div style={{ width: 100 / items + '%'
       data-toggle='tooltip'
       data-placement='top'
       href={client.website}
+      rel='noopener noreferrer'
       target='_blank'
-      style={{ backgroundImage: `url(${client.logo}` }} />
+      style={{ backgroundImage: `url(${client.logo}` }} ><span /></a>
   </OverlayTrigger>
 </div>
 
